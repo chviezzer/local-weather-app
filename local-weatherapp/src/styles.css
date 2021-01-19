@@ -2,5 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Roboto Mono', monospace;
+ }
+
+ .vertical-margin {
+     margin-top: 16px;
+     margin-bottom: 16px;
+ }
+
+ .unit {
+     vertical-align: super;
  }

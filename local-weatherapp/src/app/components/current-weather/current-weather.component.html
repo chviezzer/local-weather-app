@@ -1,0 +1,35 @@
+<div class="fluid-container">
+    <div *ngIf="!current$">
+        Sorry, no data is available.
+    </div>
+    <div *ngIf="current$ | async as current;
+        else loading"
+    >
+        <div fxLayout="row">
+            <div fxFlex="66%" class="mat-title no-margin">
+                {{current.city}}, {{current.country}}
+            </div>
+            <div fxFlex class="rigth mat-h3 no-margin"> 
+                {{current.date | date:'EEEE'}}
+                {{current.date | date:'MMM d'}}{{getOrdinal(current.date)}}
+            </div>
+       </div>
+       <div fxLayout="row">
+           <div fxFlex="60%">
+               <img style="zoom: 170%" [src]='current.image'>
+            </div>
+            <div fxFlex class="right no-margin">
+                <p class="mat-display-3">
+                   {{current.temperature | number: '1.0-0'}}
+                   <span class="mat-display-1 unit">℃</span>
+                </p>
+            </div>
+            <div fxLayoutAlingn="center">
+                {{current.description}}    
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loading>
+    Loading...
+</ng-template>
